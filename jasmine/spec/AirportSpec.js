@@ -39,4 +39,13 @@ describe('Airport', function() {
     airport.isStormy = function() { return true };
     expect( function() { airport.land(plane); }).toThrow("Weather is stormy");
   });
+
+  it('prevents landing when airport is full', function() {
+    var times = 20;
+    for(var i=1; i <= times; i++){
+    airport.isStormy = function() { return false };
+    airport.land(plane);}
+    airport.isStormy = function() { return false };
+    expect( function() { airport.land(plane); }).toThrow("Airport is full")
+  });
 });
