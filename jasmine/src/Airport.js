@@ -1,6 +1,6 @@
-function Airport() {
+function Airport(limit = 30) {
   this.runway = [];
-  this.limit = 20;
+  this.limit = limit;
 };
 
 Airport.prototype.land = function(plane) {

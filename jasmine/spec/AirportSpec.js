@@ -4,7 +4,7 @@ describe('Airport', function() {
   var plane;
 
   beforeEach(function() {
-    airport = new Airport();
+    airport = new Airport(20);
     plane = new Plane();
 
   });
@@ -48,4 +48,12 @@ describe('Airport', function() {
     airport.isStormy = function() { return false };
     expect( function() { airport.land(plane); }).toThrow("Airport is full")
   });
+
+  it('has a capacity that defaults to 20 if not specified', function() {
+    airport = new Airport()
+    expect(airport.limit).toBe(30);
+  });
+
+
+
 });
